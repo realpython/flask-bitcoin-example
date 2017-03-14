@@ -1,14 +1,14 @@
 import os
-import sqlite3
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 
 BASE = os.path.abspath(os.path.dirname(__file__))
 DATABASE_PATH = os.path.join(BASE, 'test.db')
+DATABSE_URI = os.getenv('DATABASE_URL', 'sqlite:///' + DATABASE_PATH)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + DATABASE_PATH
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABSE_URI
 db = SQLAlchemy(app)
 
 import models
@@ -33,5 +33,8 @@ def data():
     return jsonify(all_data)
 
 
+port = int(os.environ.get('PORT', 8080))
+
+
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(host='0.0.0.0', port=port)
