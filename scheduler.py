@@ -11,7 +11,7 @@ def test():
         print('got data')
 
 
-schedule.every().second.do(test)
+schedule.every().hour.do(test)
 
 while True:
     schedule.run_pending()
