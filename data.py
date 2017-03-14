@@ -1,5 +1,7 @@
-import sqlite3
 import requests
+
+from app import db
+from models import Currency
 
 
 def get_data():
@@ -8,11 +10,9 @@ def get_data():
 
 
 def add_data(bitDict):
-    with sqlite3.connect('bitcoin.db') as connection:
-        c = connection.cursor()
-        values = ['bitstamp', bitDict['last']]
-        c.execute('INSERT INTO currency (exchange, price) VALUES(?, ?)',
-                  values)
+    new_entry = Currency('bitstamp', bitDict['last'], None)
+    db.session.add(new_entry)
+    db.session.commit()
 
 
 if __name__ == '__main__':
