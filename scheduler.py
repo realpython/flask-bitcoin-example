@@ -1,11 +1,11 @@
 import schedule
 import time
 
-from data import get_data, add_data
+from data import get_rates, add_data
 
 
 def test():
-    data = get_data()
+    data = get_rates()
     if data:
         add_data(data)
         print('got data')
