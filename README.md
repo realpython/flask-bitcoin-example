@@ -16,7 +16,7 @@ It should have the following pages:
 1. Fork/Clone
 1. Create and activate a virtualenv
 1. Install dependencies
-1. Create the db - `python db.py`
+1. Create the db - `python create_db.py`
 
 ### Sanity Check
 
