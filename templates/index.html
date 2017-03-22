@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Flask Bitcoin</title>
+    {{ css_resources | safe }}
+    {{ js_resources | safe }}
+    {{ plot_script | safe }}
+  </head>
+  <body>
+    {{ plot_div | safe }}
+    <ul></ul>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+    <script type="text/javascript" src="static/main.js"></script>
+  </body>
+</html>

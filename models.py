@@ -17,4 +17,4 @@ class Currency(db.Model):
         self.horah = horah
 
     def __repr__(self):
-        return '<Currency {}>'.format(self.exchange)
+        return '<Exchange {}>'.format(self.exchange)
